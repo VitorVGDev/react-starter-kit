@@ -3,7 +3,7 @@ import { NavMain } from '@/components/nav-main';
 import { NavUser } from '@/components/nav-user';
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/components/ui/sidebar';
 import { dashboard } from '@/routes';
-import { type NavItem } from '@/types';
+import { type NavItem, User } from '@/types';
 import { Link } from '@inertiajs/react';
 import { BookOpen, Folder, LayoutGrid } from 'lucide-react';
 import AppLogo from './app-logo';
@@ -29,7 +29,7 @@ const footerNavItems: NavItem[] = [
     },
 ];
 
-export function AppSidebar() {
+export function AppSidebar({ user }: { user: User }) {
     return (
         <Sidebar collapsible="icon" variant="inset">
             <SidebarHeader>
@@ -50,7 +50,7 @@ export function AppSidebar() {
 
             <SidebarFooter>
                 <NavFooter items={footerNavItems} className="mt-auto" />
-                <NavUser />
+                <NavUser user={user} />
             </SidebarFooter>
         </Sidebar>
     );
